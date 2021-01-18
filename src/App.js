@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Header from "./components/Header";
+import "./App.css";
 
 export default function App() {
   return (

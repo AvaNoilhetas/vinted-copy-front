@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply box-border;
+}
+.btn_base {
+  @apply text-sm rounded font-normal leading-3 cursor-pointer h-7 p-2;
+}
+
+.btn {
+  @apply btn_base bg-primary text-white;
+}
+
+.btn_light {
+  @apply btn_base bg-white border border-primary text-primary;
+}
