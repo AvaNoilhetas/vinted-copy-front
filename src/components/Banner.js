@@ -3,7 +3,7 @@ import banner from "./../assets/img/banner.jpg";
 
 const Banner = () => {
   return (
-    <section className="relative h-96 overflow-hidden">
+    <section className="relative h-96 overflow-hidden mb-4">
       <img src={banner} alt="Vinted" className="-mt-20" />
       <div className="absolute inset-0 flex items-center">
         <div className="bg-white rounded  p-8 ml-8 max-w-sm">

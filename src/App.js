@@ -8,17 +8,15 @@ import "./App.css";
 export default function App() {
   return (
     <Router>
-      <div>
-        <Header />
-        <Switch>
-          <Route path="/offer/:id">
-            <Offer />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+      <Header />
+      <Switch>
+        <Route path="/offer/:id">
+          <Offer />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </Router>
   );
 }

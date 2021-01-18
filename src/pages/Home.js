@@ -13,7 +13,6 @@ export default function Home() {
       "https://vinted-copy-project.herokuapp.com/offers"
     );
     setData(response.data);
-    console.log(response.data);
     setIsLoading(false);
   };
 
@@ -22,25 +21,38 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       <Banner />
-      {!isLoading && <div>io</div>}
-      {!isLoading &&
-        data.offers.map((offer, index) => {
-          return (
-            <Link key={offer._id} to={`/offer/${offer._id}`}>
-              <Offer
-                title={offer.product_name}
-                price={offer.product_price}
-                size={offer.product_details.size}
-                brand={offer.product_details.brand}
-                productImage={offer.product_image.secure_url}
-                owner={offer.owner.account.username}
-                ownerPicture={offer.owner.account.avatar}
-              />
-            </Link>
-          );
-        })}
-    </div>
+      {isLoading && <div>io</div>}
+      {!isLoading && (
+        <div className="container grid grid-cols-5 gap-x-5">
+          {data.offers.map((offer, index) => {
+            let brand;
+            let size;
+            for (let i = 0; i < offer.product_details.length; i++) {
+              if (offer.product_details[i].brand) {
+                brand = offer.product_details[i].brand;
+              }
+              if (offer.product_details[i].size) {
+                size = offer.product_details[i].size;
+              }
+            }
+            return (
+              <Link key={offer._id} to={`/offer/${offer._id}`}>
+                <Offer
+                  title={offer.product_name}
+                  price={offer.product_price}
+                  size={size}
+                  brand={brand}
+                  productImage={offer.product_image.secure_url}
+                  owner={offer.owner.account.username}
+                  ownerPicture={offer.owner.account.avatar}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 }
