@@ -21,7 +21,11 @@ module.exports = {
     colors: {
       primary: "#09B1BA",
       secondary: "#999",
-      white: "#ffffff"
+      white: "#ffffff",
+      dark: "#111111"
+    },
+    fontFamily: {
+      body: ['"Maison Neue"', "Helvetica Neue", "Helvetica-Neue", "Arial"]
     }
   },
   variants: {

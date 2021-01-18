@@ -1,18 +1,36 @@
 @tailwind base;
 @tailwind components;
+@font-face {
+  font-family: "Maison Neue";
+  src: local("Maison Neue"),
+    url("./assets/fonts/MaisonNeue-Light.woff2") format("woff2"),
+    url("./assets/fonts/MaisonNeue-Light.woff") format("woff"),
+    url("./assets/fonts/MaisonNeue-Light.ttf") format("ttf");
+}
 @tailwind utilities;
 
 body {
-  @apply box-border;
+  @apply box-border font-body;
 }
+
+/* Buttons */
 .btn_base {
-  @apply text-sm rounded font-normal leading-3 cursor-pointer h-7 p-2;
+  @apply rounded font-normal cursor-pointer;
 }
 
 .btn {
-  @apply btn_base bg-primary text-white;
+  @apply btn_base bg-primary text-white text-lg h-11 px-4;
 }
 
 .btn_light {
   @apply btn_base bg-white border border-primary text-primary;
+}
+
+.btn_small {
+  @apply h-7 text-sm leading-3 p-2;
+}
+
+/* Title */
+.title-1 {
+  @apply font-normal text-3xl text-dark;
 }

@@ -10,13 +10,6 @@ export default function App() {
     <Router>
       <div>
         <Header />
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
         <Switch>
           <Route path="/offer/:id">
             <Offer />
