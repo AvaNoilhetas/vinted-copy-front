@@ -6,7 +6,7 @@ const Banner = () => {
     <section className="relative h-96 overflow-hidden mb-4">
       <img src={banner} alt="Vinted" className="-mt-20" />
       <div className="absolute inset-0 flex items-center">
-        <div className="bg-white rounded  p-8 ml-8 max-w-sm">
+        <div className="bg-white rounded p-8 ml-8 max-w-sm">
           <h1 className="title-1 pb-8">
             Prêts à faire du tri dans vos placards ?
           </h1>
