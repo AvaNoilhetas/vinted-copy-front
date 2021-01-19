@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Banner from "./../components/Banner";
 import Offer from "./../components/Offer";
+import Loader from "./../components/Loader";
 
 export default function Home() {
   const [data, setData] = useState({});
@@ -23,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Banner />
-      {isLoading && <div>io</div>}
+      {isLoading && <Loader />}
       {!isLoading && (
         <div className="container grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-x-5">
           {data.offers.map((offer, index) => {

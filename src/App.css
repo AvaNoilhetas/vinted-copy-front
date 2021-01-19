@@ -34,3 +34,7 @@ body {
 .title-1 {
   @apply font-normal text-3xl text-dark;
 }
+
+.title-1__white {
+  @apply font-normal text-3xl text-white;
+}
