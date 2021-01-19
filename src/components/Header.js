@@ -9,11 +9,13 @@ const Header = () => {
         <Link to="/">
           <img src={logo} alt="Vinted" />
         </Link>
-        <div>
-          <button className="btn_light btn_small mr-2">
+        <div className="flex sm:flex-row flex-col">
+          <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
             S'inscrire | Se connecter
           </button>
-          <button className="btn btn_small">Vend tes articles</button>
+          <button className="btn btn_small sm:my-0 my-1">
+            Vend tes articles
+          </button>
         </div>
       </div>
       <hr className="text-secondary" />

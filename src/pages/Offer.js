@@ -21,10 +21,10 @@ export default function Offers() {
 
   return (
     !isLoading && (
-      <section className="container bg-gray grid grid-cols-3 gap-5 py-8 min-h-screen">
-        <div className="col-span-2 rounded">
+      <section className="container bg-gray grid md:grid-cols-3 sm:grid-cols-2 gap-5 py-8 min-h-screen">
+        <div className="md:col-span-2 col-span-1 overflow-hidden">
           <img
-            className="m-auto"
+            className="m-auto max-h-offer rounded"
             src={data.product_image.secure_url}
             alt={data.product_name}
           />

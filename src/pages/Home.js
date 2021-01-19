@@ -25,7 +25,7 @@ export default function Home() {
       <Banner />
       {isLoading && <div>io</div>}
       {!isLoading && (
-        <div className="container grid grid-cols-5 gap-x-5">
+        <div className="container grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-x-5">
           {data.offers.map((offer, index) => {
             let brand;
             let size;
