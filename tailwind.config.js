@@ -23,6 +23,7 @@ module.exports = {
       secondary: "#999",
       white: "#ffffff",
       gray: "#ebedee",
+      default: "#666666",
       dark: "#111111"
     },
     fontFamily: {
