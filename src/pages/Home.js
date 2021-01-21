@@ -7,7 +7,7 @@ import Loader from "./../components/Loader";
 import Offer from "./../components/Offer";
 import Pagination from "./../components/Pagination";
 
-export default function Home() {
+const Home = () => {
   const [data, setData] = useState({});
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
@@ -73,4 +73,6 @@ export default function Home() {
       )}
     </>
   );
-}
+};
+
+export default Home;

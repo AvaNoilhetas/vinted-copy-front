@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Loader from "./../components/Loader";
 
-export default function Offers() {
+const Offers = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -120,4 +120,6 @@ export default function Offers() {
       )}
     </>
   );
-}
+};
+
+export default Offers;
