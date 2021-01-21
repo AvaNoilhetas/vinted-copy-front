@@ -27,7 +27,8 @@ module.exports = {
       white: "#ffffff",
       gray: "#ebedee",
       default: "#666666",
-      dark: "#111111"
+      dark: "#111111",
+      transparent: "transparent"
     },
     fontFamily: {
       body: ['"Maison Neue"', "Helvetica Neue", "Helvetica-Neue", "Arial"]

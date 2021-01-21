@@ -4,7 +4,7 @@ import paper from "./../assets/img/paper-effect.svg";
 
 const Banner = () => {
   return (
-    <section className="relative h-96 overflow-hidden mb-4">
+    <section className="relative h-96 overflow-hidden mb-1">
       <img
         src={banner}
         alt="Vinted"
