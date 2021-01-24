@@ -10,12 +10,16 @@ const Header = () => {
           <img src={logo} alt="Vinted" />
         </Link>
         <div className="flex sm:flex-row flex-col">
-          <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
-            S'inscrire
-          </button>
-          <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
-            Se connecter
-          </button>
+          <Link to="/signup">
+            <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
+              S'inscrire
+            </button>
+          </Link>
+          <Link to="/login">
+            <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
+              Se connecter
+            </button>
+          </Link>
           <button className="btn btn_small sm:my-0 my-1">
             Vend tes articles
           </button>

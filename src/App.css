@@ -15,7 +15,7 @@ body {
 
 /* Buttons */
 .btn_base {
-  @apply rounded font-normal cursor-pointer;
+  @apply rounded font-normal cursor-pointer focus:border-primary;
 }
 
 .btn {
@@ -30,11 +30,24 @@ body {
   @apply h-7 text-sm leading-3 p-2;
 }
 
-/* Title */
+/* Form */
+.input {
+  @apply mt-0 block w-full border-0 border-b-2 border-primary focus:ring-0 focus:border-primary px-0.5 mb-4;
+}
+
+.checkbox {
+  @apply cursor-pointer rounded text-primary h-5 w-5 focus:ring-0 focus:outline-none;
+}
+
+/* Typo */
 .title-1 {
   @apply font-normal text-3xl text-dark;
 }
 
 .title-1__white {
   @apply font-normal text-3xl text-white;
+}
+
+.link {
+  @apply text-primary text-sm;
 }

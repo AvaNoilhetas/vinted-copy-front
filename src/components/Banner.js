@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import banner from "./../assets/img/banner.jpg";
 import paper from "./../assets/img/paper-effect.svg";
 
@@ -16,7 +17,9 @@ const Banner = () => {
           <h1 className="title-1 pb-8">
             Prêts à faire du tri dans vos placards&nbsp;?
           </h1>
-          <button className="btn">Commencer à vendre</button>
+          <Link to="/signup">
+            <button className="btn">Commencer à vendre</button>
+          </Link>
         </div>
       </div>
     </section>
