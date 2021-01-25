@@ -39,6 +39,10 @@ body {
   @apply cursor-pointer rounded text-primary h-5 w-5 focus:ring-0 focus:outline-none;
 }
 
+.select {
+  @apply cursor-pointer focus:ring-0 focus:outline-none;
+}
+
 /* Typo */
 .title-1 {
   @apply font-normal text-3xl text-dark;

@@ -10,10 +10,10 @@ const ProductsPerPage = props => {
 
   return (
     <div className="text-right text-default">
-      <label>Produits par page :</label>
+      <label for="ProductsPerPage">Produits par page :</label>
       <select
         onChange={handleSelectLimit}
-        className="cursor-pointer"
+        className="select border-none"
         name="ProductsPerPage"
         id="ProductsPerPage"
       >
