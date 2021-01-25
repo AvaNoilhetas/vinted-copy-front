@@ -9,6 +9,7 @@ const Pagination = props => {
   for (let i = 1; i <= pageNb; i++) {
     pagination.push(
       <li
+        key={i}
         onClick={() => handleChangePage(i)}
         className={
           "w-8 md:flex justify-center items-center hidden cursor-pointer leading-5 transition duration-150 ease-in  border-t-2" +

@@ -10,15 +10,19 @@ const ProductsPerPage = props => {
 
   return (
     <div className="text-right text-default">
-      <label for="ProductsPerPage">Produits par page :</label>
+      <label>Produits par page :</label>
       <select
         onChange={handleSelectLimit}
         className="cursor-pointer"
         name="ProductsPerPage"
         id="ProductsPerPage"
       >
-        {options.map(option => {
-          return <option value={option}>{option}</option>;
+        {options.map((option, index) => {
+          return (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          );
         })}
       </select>
     </div>
