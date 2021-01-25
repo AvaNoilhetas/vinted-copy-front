@@ -29,7 +29,6 @@ const LogIn = () => {
           password: password
         })
         .then(response => {
-          console.log(response);
           Cookies.set("token", response.data.token, { expires: 7 });
           history.push("/");
         })
