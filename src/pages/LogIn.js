@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-const LogIn = () => {
+const LogIn = props => {
   let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +20,6 @@ const LogIn = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    console.log(email, password);
 
     try {
       await axios
@@ -30,6 +29,7 @@ const LogIn = () => {
         })
         .then(response => {
           Cookies.set("token", response.data.token, { expires: 7 });
+          props.setIsConnect(true);
           history.push("/");
         })
         .catch(error => {
@@ -66,7 +66,7 @@ const LogIn = () => {
           placeholder="Mot de passe"
         />
         <button type="submit" value="Submit" className="btn w-full mt-6">
-          Se coonecter
+          Se connecter
         </button>
         <Link to="/signup" className="block link text-center mt-3">
           Pas encore de compte ? Inscris-toi !

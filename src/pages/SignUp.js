@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = props => {
   let history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +26,6 @@ const SignUp = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    console.log(name, email, password);
 
     try {
       await axios
@@ -37,6 +36,7 @@ const SignUp = () => {
         })
         .then(response => {
           Cookies.set("token", response.data.token, { expires: 7 });
+          props.setIsConnect(true);
           history.push("/");
         })
         .catch(error => {

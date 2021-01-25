@@ -1,4 +1,5 @@
-import React from "react";
+import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -8,18 +9,27 @@ import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 
 export default function App() {
+  const [isConnect, setIsConnect] = useState(false);
+
+  useEffect(() => {
+    const isCookie = Cookies.get("token");
+    if (isCookie) {
+      setIsConnect(true);
+    }
+  }, []);
+
   return (
     <Router>
-      <Header />
+      <Header isConnect={isConnect} setIsConnect={setIsConnect} />
       <Switch>
         <Route path="/offer/:id">
           <Offer />
         </Route>
         <Route path="/signup">
-          <SignUp />
+          <SignUp setIsConnect={setIsConnect} />
         </Route>
         <Route path="/login">
-          <LogIn />
+          <LogIn setIsConnect={setIsConnect} />
         </Route>
         <Route path="/">
           <Home />

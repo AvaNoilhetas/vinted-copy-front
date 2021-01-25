@@ -10,7 +10,7 @@ const ProductsPerPage = props => {
 
   return (
     <div className="text-right text-default">
-      <label for="ProductsPerPage">Produits par page :</label>
+      <label htmlFor="ProductsPerPage">Produits par page :</label>
       <select
         onChange={handleSelectLimit}
         className="select border-none"

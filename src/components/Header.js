@@ -1,8 +1,14 @@
+import Cookies from "js-cookie";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "./../assets/img/logo.svg";
 
-const Header = () => {
+const Header = props => {
+  const handleLogout = () => {
+    Cookies.remove("token");
+    props.setIsConnect(false);
+  };
+
   return (
     <header>
       <div className="container flex justify-between items-center">
@@ -10,12 +16,21 @@ const Header = () => {
           <img src={logo} alt="Vinted" />
         </Link>
         <div className="flex sm:flex-row flex-col">
-          <Link to="/signup">
+          <button
+            onClick={handleLogout}
+            className={
+              "btn_light btn_small sm:mr-2 sm:my-0 my-1" +
+              (props.isConnect ? "" : " hidden")
+            }
+          >
+            Déconnexion
+          </button>
+          <Link to="/signup" className={props.isConnect ? "hidden" : ""}>
             <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
               S'inscrire
             </button>
           </Link>
-          <Link to="/login">
+          <Link to="/login" className={props.isConnect ? "hidden" : ""}>
             <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
               Se connecter
             </button>
