@@ -9,17 +9,17 @@ const SignUp = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleNameChange = event => {
+  const handleName = event => {
     const value = event.target.value;
     setName(value);
   };
 
-  const handleEmailChange = event => {
+  const handleEmail = event => {
     const value = event.target.value;
     setEmail(value);
   };
 
-  const handlePasswordChange = event => {
+  const handlePassword = event => {
     const value = event.target.value;
     setPassword(value);
   };
@@ -61,13 +61,13 @@ const SignUp = props => {
           id="name"
           name="name"
           value={name}
-          onChange={handleNameChange}
+          onChange={handleName}
         />
         <input
           id="email"
           name="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={handleEmail}
           className="input"
           type="email"
           placeholder="Email"
@@ -76,7 +76,7 @@ const SignUp = props => {
           id="password"
           name="password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={handlePassword}
           className="input"
           type="password"
           placeholder="Mot de passe"
