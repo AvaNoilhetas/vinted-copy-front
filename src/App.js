@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -9,15 +9,8 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 export default function App() {
-  const [token, setToken] = useState(Cookie.get("token"));
-
-  useEffect(() => {
-    const isCookie = Cookies.get("token");
-    if (isCookie) {
-      setToken(true);
-    }
-  }, []);
-
+  const [token, setToken] = useState(Cookies.get("token"));
+  console.log(token);
   return (
     <Router>
       <Header token={token} setToken={setToken} />
