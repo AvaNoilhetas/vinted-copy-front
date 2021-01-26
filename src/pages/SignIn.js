@@ -29,7 +29,7 @@ const SignIn = props => {
         })
         .then(response => {
           Cookies.set("token", response.data.token, { expires: 7 });
-          props.setIsConnect(true);
+          props.setToken(response.data.token);
           history.push("/");
         })
         .catch(error => {

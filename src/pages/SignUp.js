@@ -36,7 +36,7 @@ const SignUp = props => {
         })
         .then(response => {
           Cookies.set("token", response.data.token, { expires: 7 });
-          props.setIsConnect(true);
+          props.setToken(response.data.token);
           history.push("/");
         })
         .catch(error => {
@@ -44,6 +44,7 @@ const SignUp = props => {
         });
     } catch (error) {
       console.error(error.message);
+      //if 409 email exist
     }
   };
 

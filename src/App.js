@@ -9,27 +9,27 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 export default function App() {
-  const [isConnect, setIsConnect] = useState(false);
+  const [token, setToken] = useState(Cookie.get("token"));
 
   useEffect(() => {
     const isCookie = Cookies.get("token");
     if (isCookie) {
-      setIsConnect(true);
+      setToken(true);
     }
   }, []);
 
   return (
     <Router>
-      <Header isConnect={isConnect} setIsConnect={setIsConnect} />
+      <Header token={token} setToken={setToken} />
       <Switch>
         <Route path="/offer/:id">
           <Offer />
         </Route>
         <Route path="/signup">
-          <SignUp setIsConnect={setIsConnect} />
+          <SignUp setToken={setToken} />
         </Route>
         <Route path="/Signin">
-          <SignIn setIsConnect={setIsConnect} />
+          <SignIn setToken={setToken} />
         </Route>
         <Route path="/">
           <Home />

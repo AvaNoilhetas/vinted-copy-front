@@ -6,7 +6,7 @@ import logo from "./../assets/img/logo.svg";
 const Header = props => {
   const handleLogout = () => {
     Cookies.remove("token");
-    props.setIsConnect(false);
+    props.setToken();
   };
 
   return (
@@ -20,17 +20,17 @@ const Header = props => {
             onClick={handleLogout}
             className={
               "btn_light btn_small sm:mr-2 sm:my-0 my-1" +
-              (props.isConnect ? "" : " hidden")
+              (props.token ? "" : " hidden")
             }
           >
             Déconnexion
           </button>
-          <Link to="/signup" className={props.isConnect ? "hidden" : ""}>
+          <Link to="/signup" className={props.token ? "hidden" : ""}>
             <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
               S'inscrire
             </button>
           </Link>
-          <Link to="/signin" className={props.isConnect ? "hidden" : ""}>
+          <Link to="/signin" className={props.token ? "hidden" : ""}>
             <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
               Se connecter
             </button>
