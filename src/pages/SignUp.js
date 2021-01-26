@@ -88,7 +88,7 @@ const SignUp = props => {
         <button type="submit" value="Submit" className="btn w-full mt-6">
           S'inscrire
         </button>
-        <Link to="/login" className="block link text-center mt-3">
+        <Link to="/signin" className="block link text-center mt-3">
           Tu as déjà un compte ? Connecte-toi !
         </Link>
       </div>

@@ -3,17 +3,17 @@ import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-const LogIn = props => {
+const SignIn = props => {
   let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmailChange = event => {
+  const handleEmail = event => {
     const value = event.target.value;
     setEmail(value);
   };
 
-  const handlePasswordChange = event => {
+  const handlePassword = event => {
     const value = event.target.value;
     setPassword(value);
   };
@@ -51,7 +51,7 @@ const LogIn = props => {
           id="email"
           name="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={handleEmail}
           className="input"
           type="email"
           placeholder="Email"
@@ -60,7 +60,7 @@ const LogIn = props => {
           id="password"
           name="password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={handlePassword}
           className="input"
           type="password"
           placeholder="Mot de passe"
@@ -76,4 +76,4 @@ const LogIn = props => {
   );
 };
 
-export default LogIn;
+export default SignIn;

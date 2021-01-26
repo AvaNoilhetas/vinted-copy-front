@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import LogIn from "./pages/LogIn";
 import Offer from "./pages/Offer";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 export default function App() {
@@ -28,8 +28,8 @@ export default function App() {
         <Route path="/signup">
           <SignUp setIsConnect={setIsConnect} />
         </Route>
-        <Route path="/login">
-          <LogIn setIsConnect={setIsConnect} />
+        <Route path="/Signin">
+          <SignIn setIsConnect={setIsConnect} />
         </Route>
         <Route path="/">
           <Home />

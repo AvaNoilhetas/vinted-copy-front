@@ -30,7 +30,7 @@ const Header = props => {
               S'inscrire
             </button>
           </Link>
-          <Link to="/login" className={props.isConnect ? "hidden" : ""}>
+          <Link to="/signin" className={props.isConnect ? "hidden" : ""}>
             <button className="btn_light btn_small sm:mr-2 sm:my-0 my-1">
               Se connecter
             </button>
