@@ -7,6 +7,7 @@ const SignIn = props => {
   let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleEmail = event => {
     const value = event.target.value;
@@ -33,7 +34,9 @@ const SignIn = props => {
           history.push("/");
         })
         .catch(error => {
-          console.log(error.response);
+          if (error.response) {
+            setErrorMessage(error.response.data);
+          }
         });
     } catch (error) {
       console.error(error.message);
@@ -65,6 +68,11 @@ const SignIn = props => {
           type="password"
           placeholder="Mot de passe"
         />
+        {errorMessage && (
+          <p className="font-normal text-center text-red text-sm mt-4">
+            {errorMessage}
+          </p>
+        )}
         <button type="submit" value="Submit" className="btn w-full mt-6">
           Se connecter
         </button>

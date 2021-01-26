@@ -8,6 +8,7 @@ const SignUp = props => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleName = event => {
     const value = event.target.value;
@@ -40,11 +41,12 @@ const SignUp = props => {
           history.push("/");
         })
         .catch(error => {
-          console.log(error.response);
+          if (error.response) {
+            setErrorMessage(error.response.data);
+          }
         });
     } catch (error) {
       console.error(error.message);
-      //if 409 email exist
     }
   };
 
@@ -86,6 +88,11 @@ const SignUp = props => {
           <input type="checkbox" className="checkbox" />
           <span className="ml-2 text-gray-700">S'inscrire à la newsletter</span>
         </label>
+        {errorMessage && (
+          <p className="font-normal text-center text-red text-sm mt-4">
+            {errorMessage}
+          </p>
+        )}
         <button type="submit" value="Submit" className="btn w-full mt-6">
           S'inscrire
         </button>
