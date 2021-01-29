@@ -10,10 +10,11 @@ import SignUp from "./pages/SignUp";
 
 export default function App() {
   const [token, setToken] = useState(Cookies.get("token"));
-  console.log(token);
+  const [title, setTitle] = useState();
+
   return (
     <Router>
-      <Header token={token} setToken={setToken} />
+      <Header token={token} setToken={setToken} setTitle={setTitle} />
       <Switch>
         <Route path="/offer/:id">
           <Offer />
@@ -25,7 +26,7 @@ export default function App() {
           <SignIn setToken={setToken} />
         </Route>
         <Route path="/">
-          <Home />
+          <Home title={title} />
         </Route>
       </Switch>
     </Router>

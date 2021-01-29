@@ -1,10 +1,12 @@
 import Cookies from "js-cookie";
 import React from "react";
 import { Link } from "react-router-dom";
+import ProductsByName from "../components/ProductsByName";
 import logo from "./../assets/img/logo.svg";
 
 const Header = props => {
   const handleLogout = () => {
+    props.setTest("gaga");
     Cookies.remove("token");
     props.setToken();
   };
@@ -15,6 +17,7 @@ const Header = props => {
         <Link to="/">
           <img src={logo} alt="Vinted" />
         </Link>
+        <ProductsByName setTitle={props.setTitle} />
         <div className="flex sm:flex-row flex-col">
           <button
             onClick={handleLogout}

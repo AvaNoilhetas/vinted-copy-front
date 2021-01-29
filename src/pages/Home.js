@@ -5,19 +5,17 @@ import Banner from "../components/Banner";
 import Loader from "../components/Loader";
 import Offer from "../components/Offer";
 import Pagination from "../components/Pagination";
-import ProductsByName from "../components/ProductsByName";
 import ProductsByOrder from "../components/ProductsByOrder";
 import ProductsByPrice from "../components/ProductsByPrice";
 import ProductsPerPage from "../components/ProductsPerPage";
 
-const Home = () => {
+const Home = props => {
   const [data, setData] = useState({});
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
   const [sort, setSort] = useState();
-  const [priceMin, setPriceMin] = useState();
-  const [priceMax, setPriceMax] = useState();
-  const [title, setTitle] = useState();
+  const [priceMin, setPriceMin] = useState(0);
+  const [priceMax, setPriceMax] = useState(1500);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +26,7 @@ const Home = () => {
         sort: sort,
         priceMin: priceMin,
         priceMax: priceMax,
-        title: title
+        title: props.title
       };
       let url = `https://vinted-copy-project.herokuapp.com/offers`;
       let firstParams = true;
@@ -44,15 +42,13 @@ const Home = () => {
         }
       }
 
-      console.log(url);
-
       const response = await axios.get(url);
       setData(response.data);
       setIsLoading(false);
     };
 
     fetchData();
-  }, [page, limit, sort, priceMin, priceMax, title]);
+  }, [page, limit, sort, priceMin, priceMax, props.title]);
 
   return (
     <>
@@ -65,9 +61,10 @@ const Home = () => {
               <ProductsByPrice
                 setPriceMin={setPriceMin}
                 setPriceMax={setPriceMax}
+                priceMin={priceMin}
+                priceMax={priceMax}
               />
               <ProductsByOrder setSort={setSort} />
-              <ProductsByName setTitle={setTitle} />
             </div>
             <ProductsPerPage
               limit={limit}
