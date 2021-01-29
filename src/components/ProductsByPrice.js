@@ -1,5 +1,4 @@
 import React from "react";
-import "./range.css";
 
 const ProductsByPrice = props => {
   const handleSelectPriceMin = event => {
@@ -15,29 +14,29 @@ const ProductsByPrice = props => {
   };
 
   return (
-    <div className="flex mr-8">
-      <p>{props.priceMin}</p>
-      <div id="app">
-        <div className="range-slider">
-          <input
-            type="range"
-            min="0"
-            max="1500"
-            step="1"
-            value={props.priceMin}
-            onChange={handleSelectPriceMin}
-          />
-          <input
-            type="range"
-            min="0"
-            max="1500"
-            step="1"
-            value={props.priceMax}
-            onChange={handleSelectPriceMax}
-          />
-        </div>
+    <div className="flex justify-between items-center w-60">
+      <p className="text-default">{props.priceMin}&nbsp;€</p>
+      <div className="l-0 relative w-full h-4 mt-2 mx-3">
+        <input
+          type="range"
+          min="0"
+          max="1500"
+          step="1"
+          value={props.priceMin}
+          onChange={handleSelectPriceMin}
+          className="absolute appearance-none l-0 t-0 focus:outline-none w-full"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1500"
+          step="1"
+          value={props.priceMax}
+          onChange={handleSelectPriceMax}
+          className="absolute appearance-none l-0 t-0 focus:outline-none w-full"
+        />
       </div>
-      <p>{props.priceMax}</p>
+      <p className="text-default">{props.priceMax}&nbsp;€</p>
     </div>
   );
 };

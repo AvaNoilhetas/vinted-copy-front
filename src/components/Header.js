@@ -14,10 +14,12 @@ const Header = props => {
   return (
     <header>
       <div className="container flex justify-between items-center">
-        <Link to="/">
-          <img src={logo} alt="Vinted" />
-        </Link>
-        <ProductsByName setTitle={props.setTitle} />
+        <div className="flex items-center">
+          <Link to="/">
+            <img src={logo} alt="Vinted" />
+          </Link>
+          <ProductsByName setTitle={props.setTitle} />
+        </div>
         <div className="flex sm:flex-row flex-col">
           <button
             onClick={handleLogout}

@@ -57,20 +57,20 @@ const Home = props => {
       {!isLoading && (
         <div className="container">
           <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <ProductsByPrice
-                setPriceMin={setPriceMin}
-                setPriceMax={setPriceMax}
-                priceMin={priceMin}
-                priceMax={priceMax}
-              />
-              <ProductsByOrder setSort={setSort} />
-            </div>
-            <ProductsPerPage
-              limit={limit}
-              setLimit={setLimit}
-              setPage={setPage}
+            <ProductsByPrice
+              setPriceMin={setPriceMin}
+              setPriceMax={setPriceMax}
+              priceMin={priceMin}
+              priceMax={priceMax}
             />
+            <div className="flex items-center">
+              <ProductsByOrder setSort={setSort} />
+              <ProductsPerPage
+                limit={limit}
+                setLimit={setLimit}
+                setPage={setPage}
+              />
+            </div>
           </div>
           <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-x-5">
             {data.offers.map((offer, index) => {
