@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProductsPerPage = props => {
-  const options = ["8", "16", "32"];
+  const options = ["10", "20", "30"];
 
   const handleSelectLimit = event => {
     props.setLimit(event.target.value);

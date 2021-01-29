@@ -1,29 +1,58 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Banner from "../components/Banner";
+import Loader from "../components/Loader";
+import Offer from "../components/Offer";
+import Pagination from "../components/Pagination";
+import ProductsByName from "../components/ProductsByName";
+import ProductsByOrder from "../components/ProductsByOrder";
+import ProductsByPrice from "../components/ProductsByPrice";
 import ProductsPerPage from "../components/ProductsPerPage";
-import Banner from "./../components/Banner";
-import Loader from "./../components/Loader";
-import Offer from "./../components/Offer";
-import Pagination from "./../components/Pagination";
 
 const Home = () => {
   const [data, setData] = useState({});
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
+  const [sort, setSort] = useState();
+  const [priceMin, setPriceMin] = useState();
+  const [priceMax, setPriceMax] = useState();
+  const [title, setTitle] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://vinted-copy-project.herokuapp.com/offers?page=${page}&limit=${limit}`
-      );
+      let params = {
+        page: page,
+        limit: limit,
+        sort: sort,
+        priceMin: priceMin,
+        priceMax: priceMax,
+        title: title
+      };
+      let url = `https://vinted-copy-project.herokuapp.com/offers`;
+      let firstParams = true;
+
+      for (let el in params) {
+        if (params[el]) {
+          if (firstParams) {
+            url += `?${el}=${params[el]}`;
+            firstParams = false;
+          } else {
+            url += `&${el}=${params[el]}`;
+          }
+        }
+      }
+
+      console.log(url);
+
+      const response = await axios.get(url);
       setData(response.data);
       setIsLoading(false);
     };
 
     fetchData();
-  }, [page, limit]);
+  }, [page, limit, sort, priceMin, priceMax, title]);
 
   return (
     <>
@@ -31,11 +60,21 @@ const Home = () => {
       {isLoading && <Loader />}
       {!isLoading && (
         <div className="container">
-          <ProductsPerPage
-            limit={limit}
-            setLimit={setLimit}
-            setPage={setPage}
-          />
+          <div className="flex justify-between items-center">
+            <div className="flex items-center">
+              <ProductsByPrice
+                setPriceMin={setPriceMin}
+                setPriceMax={setPriceMax}
+              />
+              <ProductsByOrder setSort={setSort} />
+              <ProductsByName setTitle={setTitle} />
+            </div>
+            <ProductsPerPage
+              limit={limit}
+              setLimit={setLimit}
+              setPage={setPage}
+            />
+          </div>
           <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-x-5">
             {data.offers.map((offer, index) => {
               let brand;
