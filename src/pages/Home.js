@@ -13,7 +13,7 @@ import ProductsPerPage from "../components/ProductsPerPage";
 const Home = props => {
   const [data, setData] = useState({});
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(8);
+  const [limit, setLimit] = useState(10);
   const [sort, setSort] = useState();
   const [selectionPriceMax, setSelectionPriceMax] = useState();
   const [priceMin, setPriceMin] = useState(0);
@@ -62,6 +62,8 @@ const Home = props => {
           }
         }
       }
+
+      // We can use the package QS => let queryParams = qs.stringifly(params);
 
       const response = await axios.get(url);
 
