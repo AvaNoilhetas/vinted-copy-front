@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDebounce } from "use-debounce";
 import Banner from "../components/Banner";
 import Loader from "../components/Loader";
 import Offer from "../components/Offer";
@@ -18,6 +19,7 @@ const Home = props => {
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [useDebounceTitle] = useDebounce(props.title, 2000);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +45,7 @@ const Home = props => {
         sort: sort,
         priceMin: priceMin,
         priceMax: priceMax,
-        title: props.title
+        title: useDebounceTitle
       };
       let url = `https://vinted-copy-project.herokuapp.com/offers`;
       let firstParams = true;
@@ -66,7 +68,7 @@ const Home = props => {
     };
 
     fetchData();
-  }, [page, limit, sort, priceMin, priceMax, props.title]);
+  }, [page, limit, sort, priceMin, priceMax, useDebounceTitle]);
 
   return (
     <>
