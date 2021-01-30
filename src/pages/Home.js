@@ -20,6 +20,8 @@ const Home = props => {
   const [priceMax, setPriceMax] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [useDebounceTitle] = useDebounce(props.title, 2000);
+  const [useDebouncePriceMax] = useDebounce(priceMax, 800);
+  const [useDebouncePriceMin] = useDebounce(priceMin, 800);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,8 +45,8 @@ const Home = props => {
         page: page,
         limit: limit,
         sort: sort,
-        priceMin: priceMin,
-        priceMax: priceMax,
+        priceMin: useDebouncePriceMin,
+        priceMax: useDebouncePriceMax,
         title: useDebounceTitle
       };
       let url = `https://vinted-copy-project.herokuapp.com/offers`;
@@ -68,7 +70,14 @@ const Home = props => {
     };
 
     fetchData();
-  }, [page, limit, sort, priceMin, priceMax, useDebounceTitle]);
+  }, [
+    page,
+    limit,
+    sort,
+    useDebouncePriceMin,
+    useDebouncePriceMax,
+    useDebounceTitle
+  ]);
 
   return (
     <>
