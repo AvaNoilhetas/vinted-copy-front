@@ -14,9 +14,26 @@ const Home = props => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
   const [sort, setSort] = useState();
+  const [selectionPriceMax, setSelectionPriceMax] = useState();
   const [priceMin, setPriceMin] = useState(0);
-  const [priceMax, setPriceMax] = useState(1500);
+  const [priceMax, setPriceMax] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let url = `https://vinted-copy-project.herokuapp.com/offers`;
+      const response = await axios.get(url);
+
+      const max = response.data.offers.reduce(function(prev, current) {
+        return prev.product_price > current.product_price ? prev : current;
+      });
+
+      setSelectionPriceMax(max.product_price);
+      setPriceMax(max.product_price);
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,6 +60,7 @@ const Home = props => {
       }
 
       const response = await axios.get(url);
+
       setData(response.data);
       setIsLoading(false);
     };
@@ -62,6 +80,7 @@ const Home = props => {
               setPriceMax={setPriceMax}
               priceMin={priceMin}
               priceMax={priceMax}
+              selectionPriceMax={selectionPriceMax}
             />
             <div className="flex items-center">
               <ProductsByOrder setSort={setSort} />

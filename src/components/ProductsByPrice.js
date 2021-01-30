@@ -20,7 +20,7 @@ const ProductsByPrice = props => {
         <input
           type="range"
           min="0"
-          max="1500"
+          max={props.selectionPriceMax}
           step="1"
           value={props.priceMin}
           onChange={handleSelectPriceMin}
@@ -29,7 +29,7 @@ const ProductsByPrice = props => {
         <input
           type="range"
           min="0"
-          max="1500"
+          max={props.selectionPriceMax}
           step="1"
           value={props.priceMax}
           onChange={handleSelectPriceMax}
