@@ -83,7 +83,7 @@ const Home = props => {
 
   return (
     <>
-      <Banner />
+      <Banner token={props.token} />
       {isLoading && <Loader />}
       {!isLoading && (
         <div className="container">

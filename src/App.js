@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Publish from "./pages/Publish";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
@@ -22,11 +23,14 @@ export default function App() {
         <Route path="/signup">
           <SignUp setToken={setToken} />
         </Route>
+        <Route path="/publish">
+          <Publish />
+        </Route>
         <Route path="/Signin">
           <SignIn setToken={setToken} />
         </Route>
         <Route path="/">
-          <Home title={title} />
+          <Home title={title} token={token} />
         </Route>
       </Switch>
     </Router>
