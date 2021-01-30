@@ -1,9 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import magnifying from "./../assets/img/magnifying.svg";
 
 const ProductsByName = props => {
+  let history = useHistory();
+
   const handleTitle = event => {
     props.setTitle(event.target.value);
+    history.push("/home");
   };
 
   return (
