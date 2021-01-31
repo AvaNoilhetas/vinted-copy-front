@@ -40,9 +40,11 @@ const Header = props => {
               Se connecter
             </button>
           </Link>
-          <button className="btn btn_small sm:my-0 my-1">
-            Vend tes articles
-          </button>
+          <Link to="/publish">
+            <button className="btn btn_small sm:my-0 my-1">
+              Vends tes articles
+            </button>
+          </Link>
         </div>
       </div>
       <hr className="text-secondary" />
