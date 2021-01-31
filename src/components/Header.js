@@ -6,7 +6,6 @@ import logo from "./../assets/img/logo.svg";
 
 const Header = props => {
   const handleLogout = () => {
-    props.setTest("gaga");
     Cookies.remove("token");
     props.setToken();
   };

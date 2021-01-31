@@ -22,9 +22,9 @@ module.exports = {
       }
     },
     colors: {
-      primary: "#09B1BA",
+      primary: "#09b1ba",
       secondary: "#999",
-      red: "#EF4444",
+      red: "#ef4444",
       white: "#ffffff",
       gray: "#ebedee",
       lightGray: "#f5f6f7",
