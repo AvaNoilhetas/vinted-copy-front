@@ -12,7 +12,7 @@ const Pagination = props => {
         key={i}
         onClick={() => handleChangePage(i)}
         className={
-          "w-8 md:flex justify-center items-center hidden cursor-pointer leading-5 transition duration-150 ease-in  border-t-2" +
+          "w-8 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in border-t-2" +
           (props.page === i ? " border-primary" : " border-transparent")
         }
       >
