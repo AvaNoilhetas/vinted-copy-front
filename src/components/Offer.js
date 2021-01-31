@@ -3,12 +3,14 @@ import React from "react";
 const Offer = props => {
   return (
     <div className="col-span-1 my-5">
-      <div className="flex items-center">
-        <img
-          src={props.ownerPicture}
-          alt={props.owner}
-          className="rounded-full w-6 h-6 m-2"
-        />
+      <div className="flex items-center mb-2">
+        <div className="rounded-full w-6 h-6 mr-4 overflow-hidden">
+          <img
+            src={props.ownerPicture}
+            alt={props.owner}
+            className="object-cover"
+          />
+        </div>
         <p className="font-normal text-sm text-secondary">{props.owner}</p>
       </div>
       <div>

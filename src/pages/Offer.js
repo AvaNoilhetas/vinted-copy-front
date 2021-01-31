@@ -107,11 +107,13 @@ const Offers = () => {
                 <button className="btn w-full mt-6">Acheter</button>
               </div>
               <div className="bg-white rounded flex items-center p-8">
-                <img
-                  src={data.owner.account.avatar}
-                  alt={data.owner.account.username}
-                  className="rounded-full w-10 h-10 mr-4"
-                />
+                <div className="rounded-full w-10 h-10 mr-4 overflow-hidden">
+                  <img
+                    src={data.owner.account.avatar}
+                    alt={data.owner.account.username}
+                    className="object-cover"
+                  />
+                </div>
                 <p className="font-normal text-lg text-dark">
                   {data.owner.account.username}
                 </p>

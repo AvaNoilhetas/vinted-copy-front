@@ -17,46 +17,6 @@ const Publish = props => {
   const [preview, setPreview] = useState();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async event => {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("price", price);
-    formData.append("image", file);
-    formData.append("condition", condition);
-    formData.append("city", city);
-    formData.append("brand", brand);
-    formData.append("size", size);
-    formData.append("color", color);
-
-    try {
-      await axios
-        .post(
-          "https://vinted-copy-project.herokuapp.com/offer/publish",
-          formData,
-          {
-            headers: {
-              Authorization: "Bearer " + props.token,
-              "Content-Type": "multipart/form-data"
-            }
-          }
-        )
-        .then(response => {
-          alert(JSON.stringify(response.data));
-          history.push("/");
-        })
-        .catch(error => {
-          if (error.response) {
-            setErrorMessage(error.response.data);
-          }
-        });
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
   const handleFile = event => {
     const value = event.target.files[0];
     setFile(value);
@@ -108,6 +68,46 @@ const Publish = props => {
     setPreview();
   };
 
+  const handleSubmit = async event => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("image", file);
+    formData.append("condition", condition);
+    formData.append("city", city);
+    formData.append("brand", brand);
+    formData.append("size", size);
+    formData.append("color", color);
+
+    try {
+      await axios
+        .post(
+          "https://vinted-copy-project.herokuapp.com/offer/publish",
+          formData,
+          {
+            headers: {
+              Authorization: "Bearer " + props.token,
+              "Content-Type": "multipart/form-data"
+            }
+          }
+        )
+        .then(response => {
+          alert(JSON.stringify(response.data));
+          history.push("/");
+        })
+        .catch(error => {
+          if (error.response) {
+            setErrorMessage(error.response.data);
+          }
+        });
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <>
       {props.token ? (
@@ -135,13 +135,13 @@ const Publish = props => {
                   <img
                     className="mx-auto p-7 h-full w-auto"
                     src={preview}
-                    alt=""
+                    alt="image"
                   />
                   <div
                     className="absolute cursor-pointer bottom-4 right-4"
                     onClick={handleDelete}
                   >
-                    <img src={trash} alt="" width="30px" height="30px" />
+                    <img src={trash} alt="image" width="30px" height="30px" />
                   </div>
                 </div>
               )}

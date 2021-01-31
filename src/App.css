@@ -32,7 +32,7 @@ body {
 
 /* Form */
 .input {
-  @apply mt-0 block w-full border-0 border-b-2 border-primary focus:ring-0 focus:border-primary px-0.5 mb-4;
+  @apply mt-0 block w-full border-0 border-b-2 border-primary focus:ring-0 focus:border-primary py-2 px-0.5 mb-4;
 }
 
 .checkbox {
