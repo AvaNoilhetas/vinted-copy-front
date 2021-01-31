@@ -24,7 +24,7 @@ export default function App() {
           <SignUp setToken={setToken} />
         </Route>
         <Route path="/publish">
-          <Publish />
+          <Publish token={token} />
         </Route>
         <Route path="/Signin">
           <SignIn setToken={setToken} />
