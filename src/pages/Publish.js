@@ -95,8 +95,7 @@ const Publish = props => {
           }
         )
         .then(response => {
-          alert(JSON.stringify(response.data));
-          history.push("/");
+          history.push(`/offer/${response.data._id}`);
         })
         .catch(error => {
           if (error.response) {
