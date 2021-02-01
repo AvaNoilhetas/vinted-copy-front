@@ -5,6 +5,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Payment from "./pages/Payment";
 import Publish from "./pages/Publish";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -30,7 +31,7 @@ export default function App() {
           <SignIn setToken={setToken} />
         </Route>
         <Route path="/payment">
-          <SignIn token={token} />
+          <Payment token={token} />
         </Route>
         <Route path="/">
           <Home title={title} token={token} />

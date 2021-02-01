@@ -121,13 +121,13 @@ const Publish = props => {
       {props.token ? (
         <section className="bg-gray">
           <form onSubmit={handleSubmit} className="container py-10">
-            <h1 className="title-1 pb-5">Vends ton article</h1>
+            <h1 className="title-1 text-center pb-8">Vends ton article</h1>
             <div
-              className="bg-white border border-default mb-5"
+              className="bg-white w-4/5 mx-auto rounded p-8 mb-5"
               {...getRootProps()}
             >
               {!preview && (
-                <div className="border border-secondary border-dashed m-7 relative h-28">
+                <div className="border border-secondary border-dashed relative h-28">
                   <input
                     {...getInputProps()}
                     type="file"
@@ -144,7 +144,7 @@ const Publish = props => {
               {preview && (
                 <div className="relative h-72">
                   <img
-                    className="mx-auto p-7 h-full w-auto"
+                    className="mx-auto h-full w-auto"
                     src={preview[0].preview}
                     alt="produit"
                   />
@@ -157,21 +157,21 @@ const Publish = props => {
                 </div>
               )}
             </div>
-            <div className="bg-white border-default border mb-5">
-              <div className="md:flex justify-between p-7">
+            <div className="bg-white w-4/5 mx-auto rounded p-8 mb-5">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Titre</p>
                 <input
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   placeholder="ex : Chemise Sézane verte"
                   type="text"
                   onChange={handleTitle}
                 />
               </div>
               <hr className="text-default" />
-              <div className="md:flex justify-between p-7">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Décris ton article</p>
                 <textarea
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   placeholder="ex : porté quelques fois, taille correctement"
                   type="text"
                   rows="4"
@@ -180,21 +180,21 @@ const Publish = props => {
               </div>
             </div>
 
-            <div className="bg-white border-default border mb-5">
-              <div className="md:flex justify-between p-7">
+            <div className="bg-white w-4/5 mx-auto rounded p-8 mb-5">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Marque</p>
                 <input
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   placeholder="Sélectionne la marque "
                   type="text"
                   onChange={handleBrand}
                 />
               </div>
               <hr className="text-default" />
-              <div className="md:flex justify-between p-7">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Taille</p>
                 <select
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   onChange={handleSize}
                 >
                   <option value="" disabled>
@@ -220,10 +220,10 @@ const Publish = props => {
                 </select>
               </div>
               <hr className="text-secondary" />
-              <div className="md:flex justify-between p-7">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">État</p>
                 <select
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   onChange={handleCondition}
                 >
                   <option value="" disabled>
@@ -241,20 +241,20 @@ const Publish = props => {
                 </select>
               </div>
               <hr className="text-secondary" />
-              <div className="md:flex justify-between p-7">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Couleur</p>
                 <input
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   placeholder="Choisis 2 couleurs maximum"
                   type="text"
                   onChange={handleColor}
                 />
               </div>
               <hr className="text-default" />
-              <div className="md:flex justify-between p-7">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Ville</p>
                 <input
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   placeholder="Indique l'état de ton article"
                   type="text"
                   onChange={handleCity}
@@ -262,11 +262,11 @@ const Publish = props => {
               </div>
             </div>
 
-            <div className="bg-white border-default border mb-5">
-              <div className="md:flex justify-between p-7">
+            <div className="bg-white w-4/5 mx-auto rounded p-8 mb-5">
+              <div className="md:flex justify-between py-7">
                 <p className="pt-3">Prix</p>
                 <input
-                  className="input max-w-lg lg:max-w-3xl"
+                  className="input lg:max-w-xl md:max-w-sm max-w-lg"
                   placeholder="0,00 €"
                   type="number"
                   onChange={handlePrice}

@@ -22,6 +22,7 @@ const ProductsByPrice = props => {
           min="0"
           max={props.selectionPriceMax}
           step="1"
+          defaultValue={props.priceMin}
           onChange={handleSelectPriceMin}
           className="absolute appearance-none l-0 t-0 focus:outline-none w-full"
         />
@@ -30,6 +31,7 @@ const ProductsByPrice = props => {
           min="0"
           max={props.selectionPriceMax}
           step="1"
+          defaultValue={props.priceMax}
           onChange={handleSelectPriceMax}
           className="absolute appearance-none l-0 t-0 focus:outline-none w-full"
         />
