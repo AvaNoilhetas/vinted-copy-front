@@ -104,7 +104,7 @@ const Offers = () => {
                 <p className="text-default font-normal text-base">
                   {data.product_description}
                 </p>
-                <Link to="/payment">
+                <Link to={`/payment/${data._id}`}>
                   <button className="btn w-full mt-6">Acheter</button>
                 </Link>
               </div>

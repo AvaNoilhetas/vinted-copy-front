@@ -30,7 +30,7 @@ export default function App() {
         <Route path="/signin">
           <SignIn setToken={setToken} />
         </Route>
-        <Route path="/payment">
+        <Route path="/payment/:id">
           <Payment token={token} />
         </Route>
         <Route path="/">
