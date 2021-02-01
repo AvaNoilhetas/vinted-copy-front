@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loader from "./../components/Loader";
 
 const Offers = () => {
@@ -104,7 +104,9 @@ const Offers = () => {
                 <p className="text-default font-normal text-base">
                   {data.product_description}
                 </p>
-                <button className="btn w-full mt-6">Acheter</button>
+                <Link to="/payment">
+                  <button className="btn w-full mt-6">Acheter</button>
+                </Link>
               </div>
               <div className="bg-white rounded flex items-center p-8">
                 <div className="rounded-full w-10 h-10 mr-4 overflow-hidden">

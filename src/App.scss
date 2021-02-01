@@ -2,10 +2,7 @@
 @tailwind components;
 @font-face {
   font-family: "Maison Neue";
-  src: local("Maison Neue"),
-    url("./assets/fonts/MaisonNeue-Light.woff2") format("woff2"),
-    url("./assets/fonts/MaisonNeue-Light.woff") format("woff"),
-    url("./assets/fonts/MaisonNeue-Light.ttf") format("ttf");
+  src: url("./assets/fonts/MaisonNeueWEB-Book.woff2") format("woff2");
 }
 @tailwind utilities;
 

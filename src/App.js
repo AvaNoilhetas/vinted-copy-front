@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
@@ -26,8 +26,11 @@ export default function App() {
         <Route path="/publish">
           <Publish token={token} />
         </Route>
-        <Route path="/Signin">
+        <Route path="/signin">
           <SignIn setToken={setToken} />
+        </Route>
+        <Route path="/payment">
+          <SignIn token={token} />
         </Route>
         <Route path="/">
           <Home title={title} token={token} />
