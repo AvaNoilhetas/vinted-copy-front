@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useDropzone } from "react-dropzone";
 import { Redirect, useHistory } from "react-router-dom";
 import trash from "./../assets/img/trash.svg";
 
 const Publish = props => {
   let history = useHistory();
-  const [file, setFile] = useState();
+  const [file, setFile] = useState([]);
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [condition, setCondition] = useState();
@@ -17,11 +18,19 @@ const Publish = props => {
   const [preview, setPreview] = useState();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleFile = event => {
-    const value = event.target.files[0];
-    setFile(value);
-    setPreview(URL.createObjectURL(event.target.files[0]));
-  };
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*",
+    onDrop: acceptedFiles => {
+      setFile(acceptedFiles[0]);
+      setPreview(
+        acceptedFiles.map(fileAdded =>
+          Object.assign(fileAdded, {
+            preview: URL.createObjectURL(fileAdded)
+          })
+        )
+      );
+    }
+  });
 
   const handleTitle = event => {
     const value = event.target.value;
@@ -113,12 +122,15 @@ const Publish = props => {
         <section className="bg-gray">
           <form onSubmit={handleSubmit} className="container py-10">
             <h1 className="title-1 pb-5">Vends ton article</h1>
-            <div className="bg-white border border-default mb-5">
+            <div
+              className="bg-white border border-default mb-5"
+              {...getRootProps()}
+            >
               {!preview && (
-                <div className="border border-secondary border-dashed m-7 relative">
+                <div className="border border-secondary border-dashed m-7 relative h-28">
                   <input
+                    {...getInputProps()}
                     type="file"
-                    onChange={handleFile}
                     multiple
                     className="cursor-pointer relative block opacity-0 w-full h-full p-10 z-50"
                   />
@@ -133,14 +145,14 @@ const Publish = props => {
                 <div className="relative h-72">
                   <img
                     className="mx-auto p-7 h-full w-auto"
-                    src={preview}
-                    alt="image"
+                    src={preview[0].preview}
+                    alt="produit"
                   />
                   <div
                     className="absolute cursor-pointer bottom-4 right-4"
                     onClick={handleDelete}
                   >
-                    <img src={trash} alt="image" width="30px" height="30px" />
+                    <img src={trash} alt="produit" width="30px" height="30px" />
                   </div>
                 </div>
               )}
