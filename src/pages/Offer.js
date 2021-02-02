@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Loader from "./../components/Loader";
 
 const Offers = () => {
+  let history = useHistory();
+
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -19,6 +21,13 @@ const Offers = () => {
 
     fetchData();
   }, [id]);
+
+  const handlePayment = () => {
+    history.push("/payment", {
+      title: data.product_name,
+      price: data.product_price
+    });
+  };
 
   return (
     <>
@@ -104,9 +113,13 @@ const Offers = () => {
                 <p className="text-default font-normal text-base">
                   {data.product_description}
                 </p>
-                <Link to={`/payment/${data._id}`}>
-                  <button className="btn w-full mt-6">Acheter</button>
-                </Link>
+                <button
+                  onClick={handlePayment}
+                  type="button"
+                  className="btn w-full mt-6"
+                >
+                  Acheter
+                </button>
               </div>
               <div className="bg-white rounded flex items-center p-8">
                 <div className="rounded-full w-10 h-10 mr-4 overflow-hidden">

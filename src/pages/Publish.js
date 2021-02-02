@@ -123,7 +123,7 @@ const Publish = props => {
           <form onSubmit={handleSubmit} className="container py-10">
             <h1 className="title-1 text-center pb-8">Vends ton article</h1>
             <div
-              className="bg-white w-4/5 mx-auto rounded p-8 mb-5"
+              className="bg-white md:w-4/5 mx-auto rounded p-8 mb-5"
               {...getRootProps()}
             >
               {!preview && (
@@ -157,7 +157,7 @@ const Publish = props => {
                 </div>
               )}
             </div>
-            <div className="bg-white w-4/5 mx-auto rounded p-8 mb-5">
+            <div className="bg-white md:w-4/5 mx-auto rounded p-8 mb-5">
               <div className="md:flex justify-between py-7">
                 <p className="pt-3">Titre</p>
                 <input
@@ -180,7 +180,7 @@ const Publish = props => {
               </div>
             </div>
 
-            <div className="bg-white w-4/5 mx-auto rounded p-8 mb-5">
+            <div className="bg-white md:w-4/5 mx-auto rounded p-8 mb-5">
               <div className="md:flex justify-between py-7">
                 <p className="pt-3">Marque</p>
                 <input
@@ -262,7 +262,7 @@ const Publish = props => {
               </div>
             </div>
 
-            <div className="bg-white w-4/5 mx-auto rounded p-8 mb-5">
+            <div className="bg-white md:w-4/5 mx-auto rounded p-8 mb-5">
               <div className="md:flex justify-between py-7">
                 <p className="pt-3">Prix</p>
                 <input
