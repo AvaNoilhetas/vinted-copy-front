@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import React, { useState } from "react";
 import { Redirect, useLocation } from "react-router-dom";
+import info from "./../assets/img/info.svg";
 
 const Payment = props => {
   const location = useLocation();
@@ -95,7 +96,20 @@ const Payment = props => {
                   </button>
                 </form>
               ) : (
-                <span>Paiement effectué ! </span>
+                <div
+                  className="bg-lightPrimary border-t-4 border-primary rounded-b shadow-md my-2 px-4 py-3"
+                  role="alert"
+                >
+                  <div className="flex items-center text-dark">
+                    <img className="mr-5" src={info} alt="" />
+                    <div>
+                      <p className="font-bold">Paiement effectué !</p>
+                      <p className="text-sm">
+                        Votre achat sera bientôt envoyé !
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </div>
