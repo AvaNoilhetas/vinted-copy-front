@@ -17,9 +17,11 @@ const Payment = props => {
   const stripe = useStripe();
   const elements = useElements();
   const [completed, setCompleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setIsLoading(true);
 
     const cardElement = elements.getElement(CardElement);
     const stripeResponse = await stripe.createToken(cardElement, {
@@ -39,6 +41,7 @@ const Payment = props => {
 
     if (response.data.status === "succeeded") {
       setCompleted(true);
+      setIsLoading(false);
     }
   };
 
@@ -85,29 +88,55 @@ const Payment = props => {
                 </strong>{" "}
                 (frais de protection et frais de port inclus).
               </p>
-              {!completed ? (
-                <form onSubmit={handleSubmit}>
-                  <CardElement className="pb-6" />
-                  <button type="submit" className="btn w-full">
-                    Valider
-                  </button>
-                </form>
-              ) : (
-                <div
-                  className="bg-lightPrimary border-t-4 border-primary rounded-b shadow-md my-2 px-4 py-3"
-                  role="alert"
-                >
-                  <div className="flex items-center text-dark">
-                    <img className="mr-5" src={info} alt="" />
-                    <div>
-                      <p className="font-bold">Paiement effectué !</p>
-                      <p className="text-sm">
-                        Votre achat sera bientôt envoyé !
-                      </p>
+              <div className="relative">
+                {isLoading && (
+                  <div className="absolute flex items-center justify-center bg-white h-full w-full">
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-primary"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  </div>
+                )}
+                {!completed ? (
+                  <form onSubmit={handleSubmit}>
+                    <CardElement className="pb-6" />
+                    <button type="submit" className="btn w-full">
+                      Valider
+                    </button>
+                  </form>
+                ) : (
+                  <div
+                    className="bg-lightPrimary border-t-4 border-primary rounded-b shadow-md my-2 px-4 py-3"
+                    role="alert"
+                  >
+                    <div className="flex items-center text-dark">
+                      <img className="mr-5" src={info} alt="" />
+                      <div>
+                        <p className="font-bold">Paiement effectué !</p>
+                        <p className="text-sm">
+                          Votre achat sera bientôt envoyé !
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </section>

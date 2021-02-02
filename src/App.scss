@@ -12,7 +12,7 @@ body {
 
 /* Buttons */
 .btn_base {
-  @apply rounded font-normal cursor-pointer focus:border-primary;
+  @apply rounded font-normal cursor-pointer focus:border-primary focus:ring-0 focus:outline-none;
 }
 
 .btn {
