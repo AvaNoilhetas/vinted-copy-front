@@ -29,9 +29,9 @@ const ProductsByPrice = props => {
         <input
           type="range"
           min="0"
-          max={props.selectionPriceMax}
+          max={props.selectionPriceMax || "1500"}
           step="1"
-          defaultValue={props.priceMax}
+          defaultValue={props.priceMax || "1500"}
           onChange={handleSelectPriceMax}
           className="absolute appearance-none l-0 t-0 focus:outline-none w-full"
         />
