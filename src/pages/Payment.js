@@ -26,8 +26,6 @@ const Payment = props => {
       name: props.token
     });
 
-    console.log(stripeResponse);
-
     const stripeToken = stripeResponse.token.id;
 
     const response = await axios.post(
@@ -38,7 +36,6 @@ const Payment = props => {
         stripeToken
       }
     );
-    console.log(response.data);
 
     if (response.data.status === "succeeded") {
       setCompleted(true);
