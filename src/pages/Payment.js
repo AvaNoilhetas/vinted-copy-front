@@ -93,7 +93,6 @@ const Payment = props => {
                   <div className="absolute flex items-center justify-center bg-white h-full w-full">
                     <svg
                       className="animate-spin -ml-1 mr-3 h-5 w-5 text-primary"
-                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                     >
