@@ -24,7 +24,7 @@ const SignIn = props => {
 
     try {
       await axios
-        .post("https://vinted-copy-project.herokuapp.com/user/login", {
+        .post("https://vinted-copy-project.herokuapp.com/user/sign_in", {
           email: email,
           password: password
         })
