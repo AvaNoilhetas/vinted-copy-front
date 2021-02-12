@@ -94,9 +94,10 @@ const Home = props => {
               priceMin={priceMin}
               priceMax={priceMax}
               selectionPriceMax={selectionPriceMax}
+              setPage={setPage}
             />
             <div className="flex items-center">
-              <ProductsByOrder setSort={setSort} />
+              <ProductsByOrder setSort={setSort} setPage={setPage} />
               <ProductsPerPage
                 limit={limit}
                 setLimit={setLimit}

@@ -9,6 +9,7 @@ const ProductsByOrder = props => {
 
   const handleSelectSort = event => {
     props.setSort(event.target.value);
+    props.setPage(1);
   };
 
   return (

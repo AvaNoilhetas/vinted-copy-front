@@ -4,12 +4,14 @@ const ProductsByPrice = props => {
   const handleSelectPriceMin = event => {
     if (parseInt(props.priceMax) > parseInt(event.target.value)) {
       props.setPriceMin(event.target.value);
+      props.setPage(1);
     }
   };
 
   const handleSelectPriceMax = event => {
     if (parseInt(event.target.value) > parseInt(props.priceMin)) {
       props.setPriceMax(event.target.value);
+      props.setPage(1);
     }
   };
 
