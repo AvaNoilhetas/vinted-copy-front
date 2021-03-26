@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 
-const Offers = () => {
+const Offer = () => {
   let history = useHistory();
 
   const [data, setData] = useState({});
@@ -141,4 +141,4 @@ const Offers = () => {
   );
 };
 
-export default Offers;
+export default Offer;
