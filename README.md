@@ -1,4 +1,4 @@
-# VINTED FRONT END 👗🔁💰
+# 💰🔁👗 VINTED FRONT END 👗🔁💰
 
 _Copy of the selling second-hand clothes website Vinted._
 
