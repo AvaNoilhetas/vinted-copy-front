@@ -1,6 +1,6 @@
 # VINTED FRONT END 👗🔁💰
 
-_Copy of the used clothing sales site Vinted._
+_Copy of the selling second-hand clothes website Vinted._
 
 
 ![Screenshot](screenshot.png)
