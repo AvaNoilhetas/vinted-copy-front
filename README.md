@@ -1,10 +1,11 @@
 # VINTED FRONT END 👗🔁💰
 
+_Copy of the used clothing sales site Vinted._
+
+
 ![Screenshot](screenshot.png)
 <br/>
 [See the project](https://vini-vidi-vinted.netlify.app/)
-
-_Copy of the used clothing sales site Vinted._
 
 ## Installation
 
