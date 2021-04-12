@@ -1,11 +1,11 @@
-# 💰🔁👗 VINTED FRONT END 👗🔁💰
+<h1 align="center">💰🔁👗 VINTED FRONT END 👗🔁💰</h1>
 
-_Copy of the selling second-hand clothes website Vinted._
-
+<p align="center" style="font-style: italic">Copy of the selling second-hand clothes website Vinted.</p>
 
 ![Screenshot](screenshot.png)
 <br/>
-[See the project](https://vini-vidi-vinted.netlify.app/)
+<p align="center"><a href="https://vini-vidi-vinted.netlify.app/">See the project</a></p>
+
 
 ## Installation
 
