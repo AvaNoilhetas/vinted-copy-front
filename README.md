@@ -4,7 +4,7 @@
 
 ![Screenshot](screenshot.png)
 <br/>
-<p align="center"><a href="https://vini-vidi-vinted.netlify.app/">See the project</a></p>
+<p align="center"><a target="_blank" href="https://vini-vidi-vinted.netlify.app/">See the project</a></p>
 
 
 ## Installation
